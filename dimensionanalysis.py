@@ -11,13 +11,13 @@ log_G = np.log(data['G'])
 log_kB = np.log(data['k_B'])  
 log_TP = np.log(data['T_P']) 
 
-# Prepare the feature matrix (log of independent variables)
+# Prepare the feature matrix (2D array of ind variable)
 X = np.column_stack((log_h, log_c, log_G, log_kB))
 
-# Target variable (log of dependent variable)
+# log of dep variable
 y = log_TP
 
-# linear regression
+# linear regression(stat model determining relationship b/w ind and dep variable)
 model = LinearRegression()
 model.fit(X, y)
 
@@ -33,5 +33,5 @@ print(f"y (G exponent): {y:.4f}")
 print(f"z (k_B exponent): {z:.4f}")
 print(f"\nIntercept (log of proportionality constant): {intercept:.4f}")
 
-print("\nValues from dimensional analysis")
+print("Values from dimensional analysis")
 print("w = 0.5, x = 2.5, y = -0.5, z = -1")
